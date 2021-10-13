@@ -89,6 +89,41 @@ impl Solution {
         s.replace(' ', "%20")
     }
 
+    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        //输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得它们的和正好是s。如果有多对数字的和等于s，则输出任意一对即可。
+        // for i in 0..nums.len(){
+        //     for j in 0..nums.len(){
+        //         if nums[i] + nums[j] == target{
+        //             return [nums[i],nums[j] ].to_vec();
+        //         }
+        //     }
+        // }
+        // [].to_vec()
+        // 此方法效率低 
+
+        //因此可使用 双指针法 将空间复杂度降低至 O(1)O(1) 
+        let mut i = 0;
+        let mut j = nums.len() - 1;
+
+        let ret =  Vec::new();
+
+        while i<j {
+           let s = nums[i]+nums[j];
+           if s < target{
+               i+=1;
+           } else if s>target {
+               j -=1 ;
+           }else {
+               return [nums[i],nums[j]].to_vec();
+           }
+
+            
+            
+        }
+        ret
+    }
+
+
 }
 
 fn main() {
@@ -109,6 +144,8 @@ fn main() {
     // //Solution::find_number_in2_d_array(matrix, 20i32);
     // Solution::find_number_in2_d_array2(matrix, 20i32);
 
-    Solution::replace_space("We are happy.".to_string());
+    //Solution::replace_space("We are happy.".to_string());
+
+    Solution::two_sum([2,7,11,15].to_vec(), 9);
 
 }
