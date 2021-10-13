@@ -99,7 +99,7 @@ impl Solution {
         //     }
         // }
         // [].to_vec()
-        // 此方法效率低 
+        // 此暴力方法效率低 
 
         //因此可使用 双指针法 将空间复杂度降低至 O(1)O(1) 
         let mut i = 0;
@@ -115,12 +115,27 @@ impl Solution {
                j -=1 ;
            }else {
                return [nums[i],nums[j]].to_vec();
-           }
-
-            
-            
+           }  
         }
         ret
+    }
+
+    pub fn find_continuous_sequence(target: i32) -> Vec<Vec<i32>> {
+        // 输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。
+        // 序列内的数字由小到大排列，不同序列按照首个数字从小到大排列
+
+
+        Vec::new()
+    }
+
+    pub fn sum_nums(n: i32) -> i32 {
+        //求 1+2+...+n ，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
+        let mut n = n;
+        n > 0 && {
+            n += Solution::sum_nums(n - 1);
+            true
+        };
+        n
     }
 
 
@@ -146,6 +161,10 @@ fn main() {
 
     //Solution::replace_space("We are happy.".to_string());
 
-    Solution::two_sum([2,7,11,15].to_vec(), 9);
+    //Solution::two_sum([2,7,11,15].to_vec(), 9);
 
+    //Solution::find_continuous_sequence(15);
+
+
+    Solution::sum_nums(100);
 }
