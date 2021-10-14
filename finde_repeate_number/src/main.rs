@@ -138,6 +138,51 @@ impl Solution {
         n
     }
 
+    pub fn reverse_words(s: String) -> String {
+//输入一个英文句子，翻转句子中单词的顺序，但单词内字符的顺序不变。为简单起见，标点符号和普通字母一样处理。例如输入字符串"I am a student. "，则输出"student. a am I"。
+        
+        ' '.to_string()
+    }
+
+
+    pub fn single_numbers(nums: Vec<i32>) -> Vec<i32> {
+
+
+        Vec::new()
+    }
+
+    pub fn search(nums: Vec<i32>, target: i32) -> i32 {
+        //统计一个数字在排序数组中出现的次数。
+        let mut count = 0;
+        let mut lag = 0;
+        
+        if nums.len() != 1{
+                for i in 0..nums.len(){
+                    if nums[i] == target {
+                        count += 1;
+                        lag += 1;
+                    }else if lag > 0 &&  nums[i] != target{
+                        return count
+                    }
+                }
+                
+                return count
+        }else{
+            if nums[0] == target{
+                return 1
+            }else{
+                return 0
+            }
+        }
+    }
+
+    pub fn search2(nums: Vec<i32>, target: i32) -> i32 {
+        //使用二分查找
+        
+        
+        0
+    }
+
 
 }
 
